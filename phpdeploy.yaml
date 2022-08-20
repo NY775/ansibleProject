@@ -1,0 +1,19 @@
+---
+
+- name: Playbook to deploy a php webapp on centos
+  hosts:
+   - testserver
+  become: yes
+
+  roles:
+   - apache
+   - mysql
+   - php
+   
+- name: Configuring loadbalancer
+  hosts:
+   - loadbalancer
+  become: yes
+
+  roles:
+   - nginx
